@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Grade Evaluation System</title>
+</head>
+<body>
+
+    <form action="Grade evaluation" method="POST">
+        Name: <input type="text" name="name"><br>
+        Program: <input type="text" name="program"><br>
+        Student Number: <input type="text" name="studnum"><br>
+        Grade: <input type="number" name="grade"><br>
+        <input type="submit" value="ENTER">
+    </form>
+
+<?php
+
+$name = $_POST["name"];
+$program = $_POST["program"];
+$studnum = $_POST["studnum"];
+$grade = $_POST["grade"];
+
+// POINT + REMARKS
+if ($grade >= 98 && $grade <= 100) {
+    $point = "1.0";
+    $remarks = "Excellent";
+} elseif ($grade >= 95 && $grade <= 97) {
+    $point = "1.5";
+    $remarks = "Perfect";
+} elseif ($grade >= 90 && $grade <= 94) {
+    $point = "1.75";
+    $remarks = "Very Good";
+} elseif ($grade >= 85 && $grade <= 89) {
+    $point = "2.0";
+    $remarks = "Good";
+} elseif ($grade >= 75 && $grade <= 84) {
+    $point = "3.0";
+    $remarks = "Passed";
+} elseif ($grade >= 50 && $grade <= 74) {
+    $point = "5.0";
+    $remarks = "Failed";
+} elseif ($grade >= 0 && $grade <= 49) {
+    $point = "Grade Undefined";
+    $remarks = "You are not yet enrolled";
+} else {
+    $point = "Invalid";
+    $remarks = "Invalid Grade";
+}
+
+// OUTPUT
+echo "<br><br>";
+echo "Hi, student with number $studnum of $program<br>";
+echo "Your grade is $grade<br>";
+echo "Equivalent to: $point<br>";
+echo "Congrats $remarks";
+
+?>
+
+</body>
+</html>
