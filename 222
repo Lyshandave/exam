@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+
+$name    = $_POST['name'];
+$program = $_POST['program'];
+$studnum = $_POST['studnum'];
+$grade   = $_POST['grade'];
+
+$point   = "";
+$remarks = "";
+$img     = "";
+
+// GRADE CONDITIONS + IMAGES
+if ($grade >= 98 && $grade <= 100) {
+    $point = "1.0";
+    $remarks = "Excellent";
+    $img = "https://i.imgur.com/WW2JQ4b.png";
+}
+else if ($grade >= 95 && $grade <= 97) {
+    $point = "1.25";
+    $remarks = "Perfect";
+    $img = "https://i.imgur.com/8pU4KjV.png";
+}
+else if ($grade >= 90 && $grade <= 94) {
+    $point = "1.75";
+    $remarks = "Very Good";
+    $img = "https://i.imgur.com/3a1UxnB.png";
+}
+else if ($grade >= 85 && $grade <= 89) {
+    $point = "2.0";
+    $remarks = "Good";
+    $img = "https://i.imgur.com/lNTsYh2.png";
+}
+else if ($grade >= 75 && $grade <= 84) {
+    $point = "3.0";
+    $remarks = "Passed";
+    $img = "https://i.imgur.com/Xz5b0Z9.png";
+}
+else if ($grade >= 50 && $grade <= 74) {
+    $point = "5.0";
+    $remarks = "Failed";
+    $img = "https://i.imgur.com/vtN5A4L.png";
+}
+else {
+    $point = "Undefined";
+    $remarks = "You are not yet enrolled.";
+    $img = "https://i.imgur.com/6BzP0YH.png";
+}
+
+// DISPLAY OUTPUT
+echo "Name: $name<br>";
+echo "Program: $program<br>";
+echo "Student number: $studnum<br>";
+echo "Grade: $grade<br><br>";
+
+echo "Equivalent: $point<br>";
+echo "Remarks: $remarks<br><br>";
+
+// Display Image with width + height
+echo "<img src='$img' width='150' height='150'>";
+
+?>
+
+</body>
+</html>
